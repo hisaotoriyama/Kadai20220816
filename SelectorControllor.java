@@ -11,18 +11,18 @@ public class SelectorControllor {
         return listedOrNonlisted;
     }
 
-    // public static int CompanyIndexSelector(){
-    //     // Scanner scanner = new Scanner(System.in);
-    //     // System.out.println("会社を選択してください（Index）：");
-    //     // System.out.println("1iikamooooo");
-    //     // System.out.println("2iikamooooo");
-    //     // int selectedNameListed = scanner.nextInt();
-    //     int selectedNameListed = 2;
+    public static int CompanyIndexSelector(){
+        // Scanner scanner = new Scanner(System.in);
+        // System.out.println("会社を選択してください（Index）：");
+        // System.out.println("1iikamooooo");
+        // System.out.println("2iikamooooo");
+        // int selectedNameListed = scanner.nextInt();
+        int selectedNameListed = 2;
         
-    //     System.out.println("3iikamooooo");
-    //     // scanner.close();
-    //     return selectedNameListed;
-    // }
+        System.out.println("3iikamooooo");
+        // scanner.close();
+        return selectedNameListed;
+    }
 
     public static String MetalGroupSelector(){
         Scanner scanner = new Scanner(System.in);
