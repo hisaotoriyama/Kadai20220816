@@ -1,1 +1,7 @@
 # Kadai20220816
+Metal ListedMetalのListedPriceを上書きできるようにする。Superの上がき
+Variablesの見直し Naming
+MainのControler Methodへの落とし込み
+Personの必要性　成約担当者にPersonをくっつけるかどうかだろう。ただ一蘭かできないだろうと思うがどうか？できたら格好がいい。別の成約のListを作って添付する方法があるかもしれない。
+
+それにしてもテストの準備に入ったほうがいいかもしれない。。。。

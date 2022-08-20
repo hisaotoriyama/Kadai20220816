@@ -1,66 +1,62 @@
 import java.util.Scanner;
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import java.util.List;
 
 class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Person person1 = new Person("山田", "孝一", 27);
-        Person person2 = new Person("佐藤", "光太郎", 65);
-        List<Person> list = new ArrayList<>();
-        list.add(person1);
-        list.add(person2);
-        System.out.println(list);
+        Company listedCompany1 = new ListedCompany("A商事", "上場", 500, 500);
+        Company listedCompany2 = new ListedCompany("B産業", "上場",500, 300);
+        Company listedCompany3 = new ListedCompany("Cパートナーズ", "上場",300, 250);
+        List<Company> listedCompaniesList = new ArrayList<>();
+        listedCompaniesList.add(listedCompany1);
+        listedCompaniesList.add(listedCompany2);
+        listedCompaniesList.add(listedCompany3);
         
-        ListedCompany listedCompany1 = new ListedCompany("A商事", "上場");
-        ListedCompany listedCompany2 = new ListedCompany("B産業", "上場");
-        
-        NonListedCompany nonListedCompany1 = new NonListedCompany("C有限会社", "非上場");
-        NonListedCompany nonListedCompany2 = new NonListedCompany("Dコーポレーション", "非上場");
-        
-        Metal gold = new Metal("Gold", 100);
-        Metal platinium = new Metal("pratinium", 120);
+        Company nonListedCompany1 = new NonListedCompany("CCorp", "非上場",300);
+        Company nonListedCompany2 = new NonListedCompany("Corp", "非上場",200);
+        List<Company> nonListedCompaniesList = new ArrayList<>();
+        nonListedCompaniesList.add(nonListedCompany1);
+        nonListedCompaniesList.add(nonListedCompany2);
 
-        person1.buy(listedCompany1);
-        person2.buy(nonListedCompany1);
+        Metal listedMetal1 = new ListedMetal("Gold", 30, 35);
+        Metal listedMetal2 = new ListedMetal("Silver", 10,15);
+        Metal listedMetal3 = new ListedMetal("Platinium", 40,35);
+        List<Metal> listedMetalList = new ArrayList<>();
+        listedMetalList.add(listedMetal1);
+        listedMetalList.add(listedMetal2);
+        listedMetalList.add(listedMetal3);
 
-        System.out.print("相手先は上場ですか、非上場ですか：");
-        String listedOrNonlisted = scanner.next();
-        switch (listedOrNonlisted) {
-            case "上場":
-              System.out.println("上場の会社を出します");
-              break;
-            case "非上場":
-              System.out.println(("非上場の会社を出します"));
-              break;
-            default:
-              System.out.println("再度最初から始めてください");
+        Metal nonListedMetal1 = new NonListedMetal("Irridium", 50);
+        Metal nonListedMetal2 = new NonListedMetal("Paradium", 100);
+        List<Metal> nonListedMetalList = new ArrayList<>();
+        nonListedMetalList.add(nonListedMetal1);
+        nonListedMetalList.add(nonListedMetal2);
+
+        Person person1 = new Person("山田", 27);
+        Person person2 = new Person("佐藤", 65);
+        Person person3 = new Person("吉田", 91);
+        List<Person> listedPersons = new ArrayList<>();
+        listedPersons.add(person1);
+        listedPersons.add(person2);
+        listedPersons.add(person3);
+
+        System.out.println("社員番号を入れてください。合わない場合は最初からやり直してください：");
+        int employeeId = scanner.nextInt();
+        for (int i=0; i<listedPersons.size(); i++){
+            if (listedPersons.get(i).getEmployeeID() == employeeId){
+                listedPersons.get(i).printData();
+                while (true){
+                    System.out.print("続行しますか（1)、あるいは停止しますか（2)：");
+                    int continueOrStop = scanner.nextInt();
+                    if (continueOrStop ==2) {
+                        break;
+                    }
+                    OperationController.contollerere(listedCompaniesList, nonListedCompaniesList, listedMetalList, nonListedMetalList);
+                }  
+            }
         }
-        System.out.print("続いて会社名を入力してください：");
-        String name = scanner.next();
-        
-        
         scanner.close();
-
-    //   
-    //   for でインスタンスを回しnamが一致するinsutansを選択する。getName(”B産業");
-    //   forで回す　商品はどれですか
-    //   数量はどの程度ですか
-    //   数量をかける。
-    //   ＞与信が余ればまる、余らなければ成約見送る、ないし与信承認を得る。
-  
-      System.out.println("【上場会社の情報】");
-      listedCompany1.printData();
-      System.out.println("-----------------");
-      System.out.println("【上場会社向け契約者情報】");
-      listedCompany1.getOwner().printData();
-  
-      System.out.println("=================");
-      System.out.println("【非上場会社の情報】");
-      nonListedCompany1.printData();
-      System.out.println("-----------------");
-      System.out.println("【非上場会社向け契約者情報】");
-      nonListedCompany1.getOwner().printData();
     }
-  }
-  
+}
