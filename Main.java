@@ -53,7 +53,7 @@ class Main {
                     if (continueOrStop ==2) {
                         break;
                     }
-                    OperationController.contollerere(listedCompaniesList, nonListedCompaniesList, listedMetalList, nonListedMetalList);
+                    OperationController.getResult(listedCompaniesList, nonListedCompaniesList, listedMetalList, nonListedMetalList);
                 }  
             }
         }

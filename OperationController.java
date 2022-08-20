@@ -46,7 +46,7 @@ public class OperationController {
         }
     }
 
-    public static void creditChecker(List<Company> listedCompaniesList, int selectedNameListed, String selectedMetalGroup, List<Metal> listedMetalList, List<Metal> nonListedMetalList, int selectedMetal, int selectedMetalQuantity){
+    public static void creditCheckerForEachMetal(List<Company> listedCompaniesList, int selectedNameListed, String selectedMetalGroup, List<Metal> listedMetalList, List<Metal> nonListedMetalList, int selectedMetal, int selectedMetalQuantity){
             switch(selectedMetalGroup){
                 case "LM":
                   creditAvailableChecker(listedCompaniesList, selectedNameListed, listedMetalList, selectedMetal, selectedMetalQuantity);
@@ -64,17 +64,17 @@ public class OperationController {
     public static void result(List<Company> companiesList, List<Metal> listedMetalList,List<Metal> nonListedMetalList) {
         companyListCreator(companiesList);
 
-        int selectedName =  SelectorControllor.CompanyIndexSelector();
-        String selectedMetalGroup = SelectorControllor.MetalGroupSelector();
+        int selectedName =  SelectorControllor.companyIndexSelector();
+        String selectedMetalGroup = SelectorControllor.metalGroupSelector();
         metalListCreatorForEachGroup(selectedMetalGroup, listedMetalList, nonListedMetalList);
   
-        int selectedMetal =  SelectorControllor.MetalIndexSelector();
-        int selectedMetalQuantity = SelectorControllor.QuantityInputter();
-        creditChecker(companiesList, selectedName, selectedMetalGroup, listedMetalList, nonListedMetalList, selectedMetal, selectedMetalQuantity);
+        int selectedMetal =  SelectorControllor.metalIndexSelector();
+        int selectedMetalQuantity = SelectorControllor.quantityInputter();
+        creditCheckerForEachMetal(companiesList, selectedName, selectedMetalGroup, listedMetalList, nonListedMetalList, selectedMetal, selectedMetalQuantity);
     }
 
-    public static void contollerere(List<Company> listedCompaniesList, List<Company> nonListedCompaniesList, List<Metal>listedMetalList, List<Metal> nonListedMetalList) {
-        String listedOrNonlisted = SelectorControllor.CompanySelector();
+    public static void getResult(List<Company> listedCompaniesList, List<Company> nonListedCompaniesList, List<Metal>listedMetalList, List<Metal> nonListedMetalList) {
+        String listedOrNonlisted = SelectorControllor.companySelector();
         switch (listedOrNonlisted) {
             case "L":
                 OperationController.result(listedCompaniesList, listedMetalList, nonListedMetalList);
