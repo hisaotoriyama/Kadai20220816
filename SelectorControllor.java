@@ -14,8 +14,6 @@ public class SelectorControllor {
     public static int companyIndexSelector(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("会社を選択してください（Index）：");
-        System.out.println("1iikamooooo");
-        System.out.println("2iikamooooo");
         int selectedNameListed = scanner.nextInt();
         System.out.println("3iikamooooo");
         scanner.close();
